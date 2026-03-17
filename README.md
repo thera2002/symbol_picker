@@ -1,68 +1,67 @@
 # Symbol Picker
 
-Applicazione desktop per Linux che permette di sfogliare e copiare negli appunti caratteri speciali, simboli Unicode ed emoji utili per post, documenti e testi.
+A Linux desktop application to browse and copy special characters, Unicode symbols, and emoji — useful for posts, documents, and everyday text editing.
 
-Un clic sul chip → il simbolo è già negli appunti.
+Click any chip → the symbol is instantly in your clipboard.
 
 ---
 
-## Funzionalità
+## Features
 
-- **~180 simboli** organizzati in 12 categorie
-- **Ricerca live** per nome simbolo o categoria
-- **Copia con un clic** — feedback visivo immediato (flash verde + toast)
-- Adatta automaticamente il layout alla larghezza della finestra
-- Rispetta la palette del sistema (tema chiaro e scuro)
+- **~180 symbols** organised into 12 categories
+- **Live search** by symbol name or category
+- **One-click copy** — immediate visual feedback (green flash + toast notification)
+- Flow layout that adapts automatically to the window width
+- Respects the system colour palette (light and dark themes)
 
-### Categorie incluse
+### Included categories
 
-| Categoria | Esempi |
+| Category | Examples |
 |---|---|
-| Elenchi puntati | `•` `‣` `◦` `–` `—` |
-| Frecce | `→` `⇒` `➤` `↳` `↩` `▶` |
-| Geometrici pieni | `●` `■` `▲` `◆` `◉` |
-| Geometrici vuoti | `○` `□` `△` `◇` `▷` |
-| Check e stato | `✓` `✔` `✗` `☑` `⚠` `ℹ` |
-| Stelle e enfasi | `★` `✦` `✨` `❤` `◈` `※` |
-| Numerici cerchiati | `①②③` `❶❷❸` `➊➋➌` |
-| Separatori e linee | `│` `━` `〰` `═` `┼` |
-| Citazioni e testo | `«»` `‹›` `""` `…` `‼` `⁉` |
-| Simboli tipografici | `©` `®` `™` `§` `∞` `±` `÷` |
-| Mani e gesti | `👉` `👆` `👍` `✍` `🤝` |
-| Decorativi colorati | `🔹` `🔸` `🔺` `💠` `🟢` |
+| Bullet points | `•` `‣` `◦` `–` `—` |
+| Arrows | `→` `⇒` `➤` `↳` `↩` `▶` |
+| Solid shapes | `●` `■` `▲` `◆` `◉` |
+| Outline shapes | `○` `□` `△` `◇` `▷` |
+| Check & status | `✓` `✔` `✗` `☑` `⚠` `ℹ` |
+| Stars & emphasis | `★` `✦` `✨` `❤` `◈` `※` |
+| Circled numbers | `①②③` `❶❷❸` `➊➋➌` |
+| Separators & lines | `│` `━` `〰` `═` `┼` |
+| Quotes & text | `«»` `‹›` `""` `…` `‼` `⁉` |
+| Typography | `©` `®` `™` `§` `∞` `±` `÷` |
+| Hands & gestures | `👉` `👆` `👍` `✍` `🤝` |
+| Coloured decorators | `🔹` `🔸` `🔺` `💠` `🟢` |
 
 ---
 
-## Requisiti
+## Requirements
 
-- Linux (X11 o Wayland)
-- Qt 6.2 o superiore
-- CMake 3.16 o superiore
-- Compilatore C++17 (GCC 10+ o Clang 12+)
+- Linux (X11 or Wayland)
+- Qt 6.2 or later
+- CMake 3.16 or later
+- C++17 compiler (GCC 10+ or Clang 12+)
 
 ---
 
-## Compilazione
+## Building
 
-### Ubuntu / Debian
+### Install dependencies
 
+**Ubuntu / Debian**
 ```bash
 sudo apt install cmake qt6-base-dev
 ```
 
-### Arch Linux
-
+**Arch Linux**
 ```bash
 sudo pacman -S cmake qt6-base
 ```
 
-### Fedora / RHEL
-
+**Fedora / RHEL**
 ```bash
 sudo dnf install cmake qt6-qtbase-devel
 ```
 
-### Build
+### Compile
 
 ```bash
 git clone <repo>
@@ -72,46 +71,46 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
 ```
 
-Il binario si trova in `build/symbol_picker`.
+The binary is placed at `build/symbol_picker`.
 
-### Installazione opzionale
+### Optional install
 
 ```bash
-sudo make install   # installa in /usr/local/bin/symbol_picker
+sudo make install   # installs to /usr/local/bin/symbol_picker
 ```
 
 ---
 
-## Utilizzo
+## Usage
 
-Avvia l'applicazione:
+Launch the application:
 
 ```bash
 ./build/symbol_picker
 ```
 
-- **Sfoglia** le categorie scorrendo la lista
-- **Cerca** digitando nella barra in alto — filtra per nome simbolo o categoria
-- **Copia** cliccando su qualsiasi chip — appare un toast di conferma in basso
-- **Incolla** nel tuo editor, browser o terminale con `Ctrl+V`
+- **Browse** categories by scrolling the list
+- **Search** by typing in the top bar — filters by symbol name or category
+- **Copy** by clicking any chip — a confirmation toast appears at the bottom
+- **Paste** in your editor, browser or terminal with `Ctrl+V`
 
 ---
 
-## Struttura del progetto
+## Project structure
 
 ```
 symbol_picker/
-├── CMakeLists.txt      # configurazione build
+├── CMakeLists.txt      # build configuration
 ├── main.cpp            # entry point
-├── mainwindow.h        # dichiarazione finestra principale e SymbolChip
-├── mainwindow.cpp      # implementazione UI, dati simboli, logica copia
-├── flowlayout.h        # layout a flusso automatico (header)
-├── flowlayout.cpp      # layout a flusso automatico (implementazione)
-└── README.md           # questo file
+├── mainwindow.h        # MainWindow and SymbolChip declarations
+├── mainwindow.cpp      # UI, symbol data, copy logic
+├── flowlayout.h        # auto-wrapping flow layout (header)
+├── flowlayout.cpp      # auto-wrapping flow layout (implementation)
+└── README.md           # this file
 ```
 
 ---
 
-## Licenza
+## License
 
-MIT — libero per uso personale e commerciale.
+MIT — free for personal and commercial use.
